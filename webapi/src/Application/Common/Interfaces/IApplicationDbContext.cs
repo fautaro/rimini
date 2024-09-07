@@ -4,6 +4,9 @@ namespace webapi.Application.Common.Interfaces;
 
 public interface IApplicationDbContext
 {
+    DbSet<Store> Stores { get; set; }
+    DbSet<Product> Products { get; set; }
+    DbSet<Category> Categories { get; set; }
 
-    Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

@@ -4,7 +4,7 @@ namespace webapi.Application.Common.Interfaces;
 
 public interface IApplicationDbContext
 {
-    DbSet<Store> Stores { get; set; }
+    DbSet<Domain.Entities.Store> Stores { get; set; }
     DbSet<Product> Products { get; set; }
     DbSet<Category> Categories { get; set; }
 

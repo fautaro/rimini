@@ -2,10 +2,12 @@
 public class Category
 {
     public long CategoryId { get; set; }
-    public long StoreId { get; set; }
-    public string? Name { get; set; }
-    public string? Description { get; set; }
+    public long StoreId { get; set; }  // No nullable porque siempre debería haber una tienda asociada
 
-    public Store? Store { get; set; }
-    public ICollection<Product>? Products { get; set; }
+    public string? Name { get; set; }  // Nullable porque el nombre podría no estar especificado
+    public string? Description { get; set; }  // Nullable porque la descripción podría no estar especificada
+
+    public Store Store { get; set; } = null!;  // No nullable porque StoreId no es nullable y siempre debería haber una tienda
+    public ICollection<Product> Products { get; set; } = new List<Product>();  // No nullable porque siempre queremos al menos una lista vacía
 }
+

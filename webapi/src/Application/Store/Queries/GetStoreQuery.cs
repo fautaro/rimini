@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using webapi.Application.Common.Interfaces;
+﻿using webapi.Application.Common.Interfaces;
 using webapi.Application.Store.Queries.DTOs;
 
 namespace webapi.Application.Store.Queries;
@@ -35,10 +30,8 @@ public class GetStoreQueryHandler : IRequestHandler<GetStoreQuery, StoreDTO>
 
         if (store == null)
         {
-            // Manejar el caso cuando no se encuentra la tienda
         }
 
-        // Mapear la entidad Store a un DTO
         return new StoreDTO
         {
             StoreId = store.StoreId,

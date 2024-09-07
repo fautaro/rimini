@@ -1,6 +1,4 @@
-﻿using webapi.Domain.Entities;
-
-namespace webapi.Application.Common.Models;
+﻿namespace webapi.Application.Common.Models;
 
 public class LookupDto
 {

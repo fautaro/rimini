@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace webapi.Domain.Entities;
+﻿namespace webapi.Domain.Entities;
 public class Category
 {
     public long CategoryId { get; set; }

@@ -1,6 +1,6 @@
-﻿using webapi.Application.Common.Exceptions;
-using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using webapi.Application.Common.Exceptions;
 
 namespace webapi.Web.Infrastructure;
 

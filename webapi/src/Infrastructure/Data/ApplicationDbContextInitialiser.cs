@@ -1,12 +1,10 @@
-﻿using System.Runtime.InteropServices;
-using webapi.Domain.Constants;
-using webapi.Domain.Entities;
-using webapi.Infrastructure.Identity;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using webapi.Domain.Constants;
+using webapi.Infrastructure.Identity;
 
 namespace webapi.Infrastructure.Data;
 
@@ -83,7 +81,7 @@ public class ApplicationDbContextInitialiser
             await _userManager.CreateAsync(administrator, "Administrator1!");
             if (!string.IsNullOrWhiteSpace(administratorRole.Name))
             {
-                await _userManager.AddToRolesAsync(administrator, new [] { administratorRole.Name });
+                await _userManager.AddToRolesAsync(administrator, new[] { administratorRole.Name });
             }
         }
 

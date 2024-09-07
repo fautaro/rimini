@@ -1,7 +1,7 @@
-﻿using webapi.Domain.Common;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using webapi.Domain.Common;
 
 namespace webapi.Infrastructure.Data.Interceptors;
 

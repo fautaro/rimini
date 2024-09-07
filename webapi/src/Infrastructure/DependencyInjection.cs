@@ -1,12 +1,12 @@
-﻿using webapi.Application.Common.Interfaces;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Configuration;
+using webapi.Application.Common.Interfaces;
 using webapi.Domain.Constants;
 using webapi.Infrastructure.Data;
 using webapi.Infrastructure.Data.Interceptors;
 using webapi.Infrastructure.Identity;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.Configuration;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
-using webapi.Application.Common.Interfaces;
 using Microsoft.Extensions.Logging;
+using webapi.Application.Common.Interfaces;
 
 namespace webapi.Application.Common.Behaviours;
 

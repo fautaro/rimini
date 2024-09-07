@@ -1,8 +1,7 @@
-using webapi.Application.Common.Interfaces;
-using webapi.Application.Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using webapi.Application.Common.Interfaces;
+using webapi.Application.Common.Models;
 
 namespace webapi.Infrastructure.Identity;
 

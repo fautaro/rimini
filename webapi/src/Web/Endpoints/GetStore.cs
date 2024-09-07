@@ -1,4 +1,5 @@
-﻿
+﻿using webapi.Application.Store.Queries;
+using webapi.Application.Store.Queries.DTOs;
 
 namespace webapi.Web.Endpoints;
 
@@ -11,9 +12,9 @@ public class GetStore : EndpointGroupBase
             .MapGet("{storeId}", GetStoreById);
     }
 
-    public async Task<Store> GetStoreById(ISender sender, Guid storeId)
+    public async Task<StoreDTO> GetStoreById(ISender sender, Guid storeId)
     {
-        return await sender.Send(new GetStore(storeId));
+        return await sender.Send(new GetStoreQuery(storeId));
     }
 }
 

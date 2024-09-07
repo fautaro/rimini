@@ -1,5 +1,5 @@
-﻿using webapi.Application.Common.Models;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using webapi.Application.Common.Models;
 
 namespace webapi.Infrastructure.Identity;
 

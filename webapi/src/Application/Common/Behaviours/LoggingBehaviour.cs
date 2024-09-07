@@ -1,6 +1,6 @@
-﻿using webapi.Application.Common.Interfaces;
-using MediatR.Pipeline;
+﻿using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
+using webapi.Application.Common.Interfaces;
 
 namespace webapi.Application.Common.Behaviours;
 

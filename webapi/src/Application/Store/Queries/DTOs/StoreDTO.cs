@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace webapi.Application.Store.Queries.DTOs;
+﻿namespace webapi.Application.Store.Queries.DTOs;
 public class StoreDTO
 {
     public long StoreId { get; set; }

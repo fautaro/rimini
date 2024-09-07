@@ -30,14 +30,13 @@ public class GetStoreQueryHandler : IRequestHandler<GetStoreQuery, StoreDTO>
 
         if (store == null)
         {
-            // Manejar el caso en que la tienda no se encuentre
-            // Puedes lanzar una excepción o devolver un valor específico
+            throw new ArgumentNullException(nameof(store), "Store cannot be null");
         }
 
         return new StoreDTO
         {
             StoreId = store.StoreId,
-            Name = store.Name ?? string.Empty, // Proporciona un valor predeterminado si es null
+            Name = store.Name ?? string.Empty,
             Url = store.Url ?? string.Empty,
             Instagram = store.Instagram ?? string.Empty,
             Whatsapp = store.Whatsapp ?? string.Empty,
@@ -53,7 +52,7 @@ public class GetStoreQueryHandler : IRequestHandler<GetStoreQuery, StoreDTO>
                     ProductId = p.ProductId,
                     Name = p.Name ?? string.Empty,
                     Description = p.Description ?? string.Empty,
-                    Price = p.Price, // Asumo que este es un tipo decimal y no necesita el operador ??
+                    Price = p.Price,
                     ProductImage = p.ProductImage ?? string.Empty
                 }).ToList()
             }).ToList()

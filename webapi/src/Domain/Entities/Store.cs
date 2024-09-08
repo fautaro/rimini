@@ -10,9 +10,9 @@ public class Store
     public string? Address { get; set; }
     public string? ImageUrl { get; set; }
     public DateTime? CreatedAt { get; set; }
-    public string? TokenAccess { get; set; } 
+    public string? TokenAccess { get; set; }
 
     // Colecciones de categorías y productos
-    public ICollection<Category> Categories { get; set; } = new List<Category>(); 
-    public ICollection<Product> Products { get; set; } = new List<Product>(); 
+    public ICollection<Category> Categories { get; set; } = new List<Category>();
+    public ICollection<Product> Products { get; set; } = new List<Product>();
 }

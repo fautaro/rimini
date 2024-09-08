@@ -8,12 +8,12 @@ public class Product
 
     // Claves foráneas
     public long? CategoryId { get; set; }
-    public long StoreId { get; set; } 
+    public long StoreId { get; set; }
 
     // Otras propiedades
     public string? ProductImage { get; set; }
 
-    public Store Store { get; set; } = null!; 
+    public Store Store { get; set; } = null!;
     public Category? Category { get; set; }
 }
 

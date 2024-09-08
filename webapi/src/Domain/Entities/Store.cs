@@ -1,7 +1,7 @@
 ﻿namespace webapi.Domain.Entities;
 public class Store
 {
-    public long StoreId { get; set; }
+    public long store_id { get; set; }
 
     public string? Name { get; set; }
     public string? Url { get; set; }
@@ -9,7 +9,7 @@ public class Store
     public string? Whatsapp { get; set; }
     public string? Address { get; set; }
     public string? ImageUrl { get; set; }
-    public DateTime? CreatedAt { get; set; }
+    public DateTime? created_at { get; set; }
     public string? TokenAccess { get; set; }
 
     // Colecciones de categorías y productos

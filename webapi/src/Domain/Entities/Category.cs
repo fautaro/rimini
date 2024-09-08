@@ -1,8 +1,8 @@
 ﻿namespace webapi.Domain.Entities;
 public class Category
 {
-    public long CategoryId { get; set; }
-    public long StoreId { get; set; }  // No nullable porque siempre debería haber una tienda asociada
+    public long Category_id { get; set; }
+    public long Store_id { get; set; }  // No nullable porque siempre debería haber una tienda asociada
 
     public string? Name { get; set; }  // Nullable porque el nombre podría no estar especificado
     public string? Description { get; set; }  // Nullable porque la descripción podría no estar especificada

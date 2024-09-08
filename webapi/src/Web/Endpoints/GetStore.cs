@@ -8,7 +8,6 @@ public class GetStore : EndpointGroupBase
     public override void Map(WebApplication app)
     {
         app.MapGroup(this)
-            .RequireAuthorization()
             .MapGet("{storeId}", GetStoreById);
     }
 

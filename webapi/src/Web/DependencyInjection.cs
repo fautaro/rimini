@@ -16,6 +16,7 @@ public static class DependencyInjection
             .AddDbContextCheck<ApplicationDbContext>();
 
         services.AddExceptionHandler<CustomExceptionHandler>();
+        services.AddCors();
 
         services.AddRazorPages();
 

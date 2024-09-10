@@ -25,22 +25,27 @@
 <body>
   <div id="app" class="min-h-screen bg-white flex flex-col justify-between overflow-x-hidden">
     <!-- Modal -->
-    <div v-if="showModal"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ease-out">
-      <div
-        class="bg-white rounded-lg overflow-hidden shadow-xl max-w-sm sm:max-w-md md:max-w-lg w-full transition-opacity duration-300 ease-out">
-        <div class="p-4">
-          <h2 class="text-xl font-bold text-[#181112]">{{ modalData.title }}</h2>
-          <img :src="modalData.image" class="w-full h-auto mt-4 rounded-lg" :alt="modalData.title">
-          <p class="text-sm text-[#8a6067] mt-4">{{ modalData.description }}</p>
-          <p class="text-lg text-[#181112] font-semibold mt-2">{{ formatPrice(modalData.price) }}</p>
-        </div>
-        <div class="flex justify-end p-4">
-          <button style="background-color: #520c10" @click="closeModal"
-            class="bg-red-500 text-white px-4 py-2 rounded">Cerrar</button>
+    <transition name="modal-fade">
+      <div v-if="showModal"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ease-out">
+        <div
+          class="bg-white rounded-lg overflow-hidden shadow-xl w-[90%] max-w-3xl transition-opacity duration-300 ease-out">
+          <div class="p-4 max-h-[70vh] overflow-y-auto">
+            <h2 class="text-xl font-bold text-[#181112]">{{ modalData.title }}</h2>
+            <img :src="modalData.image" class="w-full h-auto max-w-[600px] max-h-[400px] mt-4 mx-auto rounded-lg object-contain" :alt="modalData.title">
+            <p class="text-sm text-[#8a6067] mt-4">{{ modalData.description }}</p>
+            <p class="text-lg text-[#181112] font-semibold mt-2">{{ formatPrice(modalData.price) }}</p>
+          </div>
+          <div class="flex justify-end p-4">
+            <button style="background-color: #520c10" @click="closeModal"
+              class="bg-red-500 text-white px-4 py-2 rounded">Cerrar</button>
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
+    
+  
+  
 
     <!-- header -->
     <header class="p-4 pb-2">
@@ -85,7 +90,7 @@
           <div class="w-14 h-14 bg-center bg-cover rounded-lg"
             :style="{ backgroundImage: 'url(' + product.productImage + ')' }">
           </div>
-          <div class="w-full max-w-xs">
+          <div class="w-full md:max-w-full">
             <h2 class="text-base font-medium text-[#181112]">{{ product.name }}</h2>
             <p class="text-sm text-[#8a6067]">{{ formatPrice(product.price) }}</p>
             <p class="text-sm text-[#8a6067]">{{ truncateDescription(product.description) }}</p>
@@ -93,9 +98,11 @@
         </div>
       </div>
     </main>
+    
 
     <!-- Footer Spacer -->
     <footer class="h-5 bg-white"></footer>
+    <div class="text-sm text-[#8a6067] text-center" style="font-size:9px">Lautaro Farias - 2024</div>
   </div>
 
   <script>

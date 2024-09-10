@@ -24,6 +24,12 @@
 
 <body>
   <div id="app" class="min-h-screen bg-white flex flex-col justify-between overflow-x-hidden">
+        <!-- Loading Spinner -->
+        <transition name="fade">
+          <div v-if="isLoading" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ease-out">
+            <div class="loader"></div>
+          </div>
+        </transition>
     <!-- Modal -->
     <transition name="modal-fade">
       <div v-if="showModal"
@@ -32,7 +38,9 @@
           class="bg-white rounded-lg overflow-hidden shadow-xl w-[90%] max-w-3xl transition-opacity duration-300 ease-out">
           <div class="p-4 max-h-[70vh] overflow-y-auto">
             <h2 class="text-xl font-bold text-[#181112]">{{ modalData.title }}</h2>
-            <img :src="modalData.image" class="w-full h-auto max-w-[600px] max-h-[400px] mt-4 mx-auto rounded-lg object-contain" :alt="modalData.title">
+            <img :src="modalData.image"
+              class="w-full h-auto max-w-[600px] max-h-[400px] mt-4 mx-auto rounded-lg object-contain"
+              :alt="modalData.title">
             <p class="text-sm text-[#8a6067] mt-4">{{ modalData.description }}</p>
             <p class="text-lg text-[#181112] font-semibold mt-2">{{ formatPrice(modalData.price) }}</p>
           </div>
@@ -43,66 +51,67 @@
         </div>
       </div>
     </transition>
-    
-  
-  
 
-    <!-- header -->
-    <header class="p-4 pb-2">
-      <div class="flex flex-col items-center">
-        <!-- Imagen centrada del logo -->
-        <img src="./assets/logo.jpg" alt="Rimini Wines Logo" class="h-20 mb-4">
-        <!-- Título -->
-        <h1 class="text-2xl font-bold text-[#181112]">Rimini Wines</h1>
-        <!-- Subtítulo -->
-        <h4 class="text-lg font-semibold text-[#181112] mt-2" style="color: #520c10">Catálogo vigente</h4>
+
+    <div v-if="!isLoading">
+      <!-- header -->
+      <header class="p-4 pb-2">
+        <div class="flex flex-col items-center">
+          <!-- Imagen centrada del logo -->
+          <img src="./assets/logo.jpg" alt="Rimini Wines Logo" class="h-20 mb-4">
+          <!-- Título -->
+          <h1 class="text-2xl font-bold text-[#181112]">Rimini Wines</h1>
+          <!-- Subtítulo -->
+          <h4 class="text-lg font-semibold text-[#181112] mt-2" style="color: #520c10">Catálogo vigente</h4>
+        </div>
+      </header>
+      <!-- Íconos flotantes -->
+      <div v-if="!isLoading" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
+        <a :href="store.instagram" target="_blank"
+          class="bg-[#520c10] text-white p-3 rounded-full flex justify-center items-center h-12 w-12">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+        <a :href="store.whatsapp" target="_blank"
+          class="bg-[#520c10] text-white p-3 rounded-full flex justify-center items-center h-12 w-12">
+          <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
       </div>
-    </header>
-    <!-- Íconos flotantes -->
-    <div v-if="!isLoading" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
-      <a :href="store.instagram" target="_blank"
-        class="bg-[#520c10] text-white p-3 rounded-full flex justify-center items-center h-12 w-12">
-        <i class="fab fa-instagram fa-lg"></i>
-      </a>
-      <a :href="store.whatsapp" target="_blank"
-        class="bg-[#520c10] text-white p-3 rounded-full flex justify-center items-center h-12 w-12">
-        <i class="fab fa-whatsapp fa-lg"></i>
-      </a>
-    </div>
 
-    <!-- Tabs -->
-    <nav class="border-b border-[#e6dbdd] px-4 overflow-x-auto">
-      <ul class="flex gap-2 whitespace-nowrap">
-        <li v-for="category in store.categories" :key="category.categoryId" v-on:click="selectTab(category.categoryId)"
-          class="tab-link cursor-pointer px-4" :data-tab="category.categoryId"
+      <!-- Tabs -->
+      <nav class="border-b border-[#e6dbdd] px-4 overflow-x-auto">
+        <ul class="flex gap-2 whitespace-nowrap">
+          <li v-for="category in store.categories" :key="category.categoryId"
+            v-on:click="selectTab(category.categoryId)" class="tab-link cursor-pointer px-4"
+            :data-tab="category.categoryId" :class="{ 'active': selectedTab === category.categoryId }">
+            {{ category.name }}
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Tab Contents -->
+      <main class="flex-1">
+        <div v-for="category in store.categories" :id="category.categoryId" class="tab-content px-4 py-6"
           :class="{ 'active': selectedTab === category.categoryId }">
-          {{ category.name }}
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Tab Contents -->
-    <main class="flex-1">
-      <div v-for="category in store.categories" :id="category.categoryId" class="tab-content px-4 py-6"
-        :class="{ 'active': selectedTab === category.categoryId }">
-        <div v-for="product in category.products" class="flex items-center gap-4 mb-5 cursor-pointer"
-          @click="openModal(product.name, product.productImage, product.price, product.description)">
-          <div class="w-14 h-14 bg-center bg-cover rounded-lg"
-            :style="{ backgroundImage: 'url(' + product.productImage + ')' }">
-          </div>
-          <div class="w-full md:max-w-full">
-            <h2 class="text-base font-medium text-[#181112]">{{ product.name }}</h2>
-            <p class="text-sm text-[#8a6067]">{{ formatPrice(product.price) }}</p>
-            <p class="text-sm text-[#8a6067]">{{ truncateDescription(product.description) }}</p>
+          <div v-for="product in category.products" class="flex items-center gap-4 mb-5 cursor-pointer"
+            @click="openModal(product.name, product.productImage, product.price, product.description)">
+            <div class="w-14 h-14 bg-center bg-cover rounded-lg"
+              :style="{ backgroundImage: 'url(' + product.productImage + ')' }">
+            </div>
+            <div class="w-full md:max-w-full">
+              <h2 class="text-base font-medium text-[#181112]">{{ product.name }}</h2>
+              <p class="text-sm text-[#8a6067]">{{ formatPrice(product.price) }}</p>
+              <p class="text-sm text-[#8a6067]">{{ truncateDescription(product.description) }}</p>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
-    
+      </main>
 
-    <!-- Footer Spacer -->
-    <footer class="h-5 bg-white"></footer>
-    <div class="text-sm text-[#8a6067] text-center" style="font-size:9px">Lautaro Farias - 2024</div>
+
+      <!-- Footer Spacer -->
+      <footer class="h-5 bg-white"></footer>
+      <div class="text-sm text-[#8a6067] text-center" style="font-size:9px">Lautaro Farias - 2024</div>
+    </div>
+
   </div>
 
   <script>

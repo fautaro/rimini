@@ -16,3 +16,8 @@ Este proyecto es una aplicación web que permite mostrar los productos de una ti
 2. **Backend:**
    - **.NET 8 Web API:** Implementa los endpoints para obtener las tiendas y los productos.
    - **Clean Architecture Template:** Implementa 3 capas: Application, Domain e Infraestructure.
+
+
+## Demo
+
+- https://fautaro.github.io/rimini/

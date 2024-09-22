@@ -5,3 +5,7 @@
 
 # GET Store by ID
 GET {{Web_HostAddress}}/api/GetStore/caf322dd-1df2-4762-aab8-e020f05a595a
+
+###
+# Ping
+GET {{Web_HostAddress}}/api/Health/Ping

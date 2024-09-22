@@ -1,3 +1,5 @@
+using webapi.Web.Endpoints;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

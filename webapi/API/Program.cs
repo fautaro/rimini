@@ -30,6 +30,20 @@ builder.Services.AddMediatR(options =>
     options.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
+
+
+// Luego, aplica la política
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -39,7 +53,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseCors();  
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

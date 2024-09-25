@@ -1,12 +1,11 @@
-using MediatR;
 using System.Reflection;
-using Microsoft.Extensions.DependencyInjection;
-using webapi.Application.Common.Behaviours;
 using API;
-using webapi.Application.Store.Queries;
-using webapi.Application.Common.Interfaces;
-using webapi.Infrastructure.Data;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using webapi.Application.Common.Behaviours;
+using webapi.Application.Common.Interfaces;
+using webapi.Application.Store.Queries;
+using webapi.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,7 +52,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors();  
+app.UseCors();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

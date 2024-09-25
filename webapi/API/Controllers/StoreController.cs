@@ -23,7 +23,7 @@ public class StoreController : ControllerBase
 
         if (store == null)
             return NotFound();
-        
+
 
         return Ok(store);
     }

@@ -1,0 +1,6 @@
+﻿namespace webapi.Application.Common.Interfaces;
+
+public interface IUser
+{
+    string? Id { get; }
+}

@@ -1,0 +1,46 @@
+﻿<div class="container px-4">
+    <h1 class="mt-4">Listado de Categorías</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Rimini Wines</li>
+    </ol>
+
+    <!-- Tabla con las categorías -->
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Categorías</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-sm table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí puedes iterar sobre tus categorías usando Razor -->
+@*                     @foreach (var category in Model.Categories)
+                    {
+                        <tr>
+                            <td>@category.Order</td>
+                            <td>@category.Name</td>
+                            <td>@category.Description</td>
+                            <td>
+                                <!-- Botón Editar -->
+                                <a href="/Categories/Edit/@category.Id" class="btn btn-sm btn-warning" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <!-- Botón Eliminar -->
+                                <a href="/Categories/Delete/@category.Id" class="btn btn-sm btn-danger" title="Eliminar">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    } *@
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

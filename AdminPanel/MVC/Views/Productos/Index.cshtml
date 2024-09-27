@@ -1,0 +1,50 @@
+﻿<div class="container px-4">
+    <h1 class="mt-4">Listado de Productos</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Rimini Wines</li>
+    </ol>
+
+    <!-- Tabla con los productos -->
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Productos</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-sm table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Posición</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Nombre del Producto</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí puedes iterar sobre tus productos usando Razor -->
+@*                     @foreach (var product in Model.Products)
+                    {
+                        <tr>
+                            <td>@product.Position</td>
+                            <td>@product.CategoryName</td>
+                            <td>@product.Name</td>
+                            <td>@product.Description</td>
+                            <td>@product.Price.ToString("C")</td>
+                            <td>
+                                <!-- Botón Editar -->
+                                <a href="/Products/Edit/@product.Id" class="btn btn-sm btn-warning" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <!-- Botón Eliminar -->
+                                <a href="/Products/Delete/@product.Id" class="btn btn-sm btn-danger" title="Eliminar">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    } *@
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

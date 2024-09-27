@@ -1,5 +1,32 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<div class="container px-4">
+    <h1 class="mt-4">Agregar nueva categoría</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Rimini Wines</li>
+    </ol>
+
+    <!-- Card para el formulario -->
+    <div class="card shadow-sm" style="max-width: 800px;">
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <!-- Campo: Título de la Categoría -->
+                <div class="form-group mb-3">
+                    <label for="categoryTitle" class="form-label">Título de la Categoría</label>
+                    <input type="text" class="form-control" id="categoryTitle" name="categoryTitle" required placeholder="Ingresa el título de la categoría" />
+                </div>
+
+                <!-- Campo: Descripción de la Categoría -->
+                <div class="form-group mb-3">
+                    <label for="categoryDescription" class="form-label">Descripción de la Categoría</label>
+                    <textarea class="form-control" id="categoryDescription" name="categoryDescription" required placeholder="Ingresa la descripción de la categoría" rows="4"></textarea>
+                </div>
+
+                <!-- Botón de envío centrado -->
+                <div class="d-flex justify-content-center">
+                    <div class="d-grid" style="max-width: 200px;">
+                        <button type="submit" class="btn btn-primary">Dar de Alta Categoría</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

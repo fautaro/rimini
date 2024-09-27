@@ -1,18 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using MVC.Models;
+using MVC.Services;
 using System.Diagnostics;
 
 namespace MVC.Controllers;
 
 public class DashboardController : Controller
 {
-    private readonly ILogger<DashboardController> _logger;
+    private readonly IMediator _mediator;
+    private readonly CurrentUserService _currentUserService;
+    private readonly LoginService _loginService;
 
-    public DashboardController(ILogger<DashboardController> logger)
+    // Constructor con inyección de dependencias
+    public DashboardController(IMediator mediator, CurrentUserService currentUserService, LoginService loginService)
     {
-        _logger = logger;
+        _mediator = mediator;
+        _currentUserService = currentUserService;
+        _loginService = loginService;
     }
-
     public IActionResult Index()
     {
         return View();

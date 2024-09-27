@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using System.Reflection.Emit;
+using Microsoft.EntityFrameworkCore;
 using webapi.Application.Common.Interfaces;
 using webapi.Domain.Entities;
 
@@ -60,6 +62,22 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
             entity.HasMany(c => c.Products)
                   .WithOne(p => p.Category)
                   .HasForeignKey(p => p.Category_id);
+        });
+
+        builder.Entity<User>(entity =>
+        {
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Created).HasColumnName("created");
+            entity.Property(e => e.Email).HasColumnName("email");
+            entity.Property(e => e.First_Name).HasColumnName("first_name");
+            entity.Property(e => e.Last_Name).HasColumnName("last_name");
+            entity.Property(e => e.Password).HasColumnName("password");
+            entity.Property(e => e.Updated).HasColumnName("updated");
+            entity.Property(e => e.Username).HasColumnName("username");
+            entity.Property(e => e.Role).HasColumnName("role");
+            entity.Property(e => e.Active).HasColumnName("active");
+            entity.Property(e => e.StoreId).HasColumnName("StoreId");
+
         });
     }
 }

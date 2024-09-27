@@ -1,15 +1,22 @@
 using System.Diagnostics;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using MVC.Models;
+using MVC.Services;
 
 namespace MVC.Controllers;
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly IMediator _mediator;
+    private readonly CurrentUserService _currentUserService;
+    private readonly LoginService _loginService;
 
-    public HomeController(ILogger<HomeController> logger)
+    // Constructor con inyección de dependencias
+    public HomeController(IMediator mediator, CurrentUserService currentUserService, LoginService loginService)
     {
-        _logger = logger;
+        _mediator = mediator;
+        _currentUserService = currentUserService;
+        _loginService = loginService;
     }
 
     public IActionResult Index()
